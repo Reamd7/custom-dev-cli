@@ -1,8 +1,10 @@
-import zx from 'zx';
-import { ROVODEV_PATH } from './constants';
-if (!zx.fs.existsSync(ROVODEV_PATH)) {
-  zx.fs.mkdirSync(ROVODEV_PATH);
-}
+import * as zx from 'zx';
+import { program } from 'commander';
+import { VERSION_INFO } from './constants';
+import { config_command } from './commands/config/command';
+
+const command = program.showHelpAfterError();
+zx.usePowerShell();
 
 async function main() {
   // Startup checks:
@@ -13,8 +15,15 @@ async function main() {
     );
     process.exit(1);
   }
+  const versionInfo = await VERSION_INFO();
+  command.version(versionInfo);
+
+  command
+    .command('config')
+    .description('Open the Custom Dev configuration file in your editor.')
+    .action(config_command);
+
+  command.parse();
 }
 
-if (require.main === module) {
-  main();
-}
+main();

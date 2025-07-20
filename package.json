@@ -17,26 +17,32 @@
   "scripts": {
     "build": "rslib build",
     "check": "biome check --write",
+    "fix": "biome check --write --unsafe",
     "dev": "rslib build --watch",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start": "node --import=tsx ./src/index.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
     "@eslint/js": "^9.30.0",
     "@rslib/core": "^0.10.6",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.16.4",
     "eslint": "^9.30.0",
     "globals": "^16.2.0",
     "husky": "^9.1.7",
     "prettier": "^3.6.2",
+    "shlex": "^3.0.0",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.1"
   },
   "private": true,
   "dependencies": {
     "commander": "^14.0.0",
+    "fs-extra": "^11.3.0",
     "yaml": "^2.8.0",
     "zod": "^4.0.5",
     "zx": "^8.7.1"
