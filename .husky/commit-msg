@@ -1,0 +1,15 @@
+node -e "
+const fs = require('fs');
+const commitMsgFile = process.argv[1];
+const commitMsg = fs.readFileSync(commitMsgFile, 'utf8').trim();
+
+const commitRegex = /^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,50}/;
+
+if (!commitRegex.test(commitMsg)) {
+  console.log('❌ 提交信息格式不正确!');
+  console.log('请使用以下格式: <type>: <description>');
+  console.log('类型可以是: feat, fix, docs, style, refactor, test, chore');
+  console.log('示例: feat: 添加新功能');
+  process.exit(1);
+}
+" $1

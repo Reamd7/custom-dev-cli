@@ -19,7 +19,8 @@
     "check": "biome check --write",
     "dev": "rslib build --watch",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
@@ -28,6 +29,7 @@
     "@types/node": "^22.16.4",
     "eslint": "^9.30.0",
     "globals": "^16.2.0",
+    "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.1"
