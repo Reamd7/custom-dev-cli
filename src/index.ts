@@ -2,6 +2,7 @@ import * as zx from 'zx';
 import { program } from 'commander';
 import { VERSION_INFO } from './constants';
 import { config_command } from './commands/config/command';
+import { log_command } from './commands/log/command';
 
 const command = program.showHelpAfterError();
 zx.usePowerShell();
@@ -22,6 +23,11 @@ async function main() {
     .command('config')
     .description('Open the Custom Dev configuration file in your editor.')
     .action(config_command);
+
+  command
+    .command('log')
+    .description('Open the Custom Dev log file in your editor.')
+    .action(log_command);
 
   command.parse();
 }
