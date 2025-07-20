@@ -3,6 +3,7 @@ import { program } from 'commander';
 import { VERSION_INFO } from './constants';
 import { config_command } from './commands/config/command';
 import { log_command } from './commands/log/command';
+import { mcp_command } from './commands/mcp/command';
 
 const command = program.showHelpAfterError();
 zx.usePowerShell();
@@ -28,6 +29,11 @@ async function main() {
     .command('log')
     .description('Open the Custom Dev log file in your editor.')
     .action(log_command);
+
+  command
+    .command('mcp')
+    .description('Open the Custom Dev MCP configuration file in your editor.')
+    .action(mcp_command);
 
   command.parse();
 }
