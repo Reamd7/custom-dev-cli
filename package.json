@@ -41,6 +41,8 @@
   },
   "private": true,
   "dependencies": {
+    "@types/blessed": "^0.1.25",
+    "blessed": "^0.1.81",
     "commander": "^14.0.0",
     "fs-extra": "^11.3.0",
     "yaml": "^2.8.0",

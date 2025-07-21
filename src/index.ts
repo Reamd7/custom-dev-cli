@@ -4,6 +4,7 @@ import { VERSION_INFO } from './constants';
 import { config_command } from './commands/config/command';
 import { log_command } from './commands/log/command';
 import { mcp_command } from './commands/mcp/command';
+import { run_command } from './commands/run/command';
 
 const command = program.showHelpAfterError();
 zx.usePowerShell();
@@ -34,6 +35,11 @@ async function main() {
     .command('mcp')
     .description('Open the Custom Dev MCP configuration file in your editor.')
     .action(mcp_command);
+
+  command
+    .command('run')
+    .description('Run the Custom Dev server.')
+    .action(run_command);
 
   command.parse();
 }
